@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>胶片底片档案库</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+<div id="login" class="panel">
+  <h3>登录</h3>
+  <input type="password" id="key" placeholder="密钥">
+  <button onclick="login()">登录</button>
+</div>
+
+<header class="hidden"><h1>胶片底片档案库</h1></header>
+
+<div class="section hidden">
+  <button onclick="exportBackup()">💾 备份数据</button>
+  <input type="file" id="imp" style="display:none" onchange="importBackup(this)">
+  <button onclick="document.getElementById('imp').click()">📥 恢复数据</button>
+</div>
+
+<div class="section hidden">
+  <h2>胶卷列表</h2>
+  <div id="rolls"></div>
+  <button onclick="showAddRoll()">新建胶卷</button>
+</div>
+
+<div id="addRoll" class="panel hidden">
+  <input id="brand" placeholder="品牌"><br>
+  <input id="model" placeholder="型号"><br>
+  <input id="iso" type="number" placeholder="ISO"><br>
+  <input id="camera" placeholder="相机"><br>
+  <input type="date" id="shootDate"><br>
+  <input id="loc" placeholder="地点"><br>
+  <input type="date" id="devDate" placeholder="冲扫日期"><br>
+  <input id="lab" placeholder="冲扫店"><br>
+  <input id="scan" placeholder="扫描设备"><br>
+  <textarea id="note" placeholder="备注"></textarea><br>
+  <button onclick="addRoll()">保存</button>
+</div>
+
+<div id="detail" class="panel hidden">
+  <div class="tabs">
+    <button onclick="load(1)">底片</button>
+    <button onclick="load(2)">扫描件</button>
+  </div>
+  <div id="grid"></div>
+  <button onclick="showUpload()">上传</button>
+  <button onclick="delRoll()" class="warn">删除整卷</button>
+</div>
+
+<div id="upload" class="panel hidden">
+  <input type="file" multiple id="files"><br>
+  <select id="t">
+    <option value="1">底片</option>
+    <option value="2">扫描件</option>
+  </select><br>
+  <input type="number" id="fn" placeholder="帧号"><br>
+  <input type="date" id="st"><br>
+  <input id="sloc" placeholder="地点"><br>
+  <button onclick="upload()">上传</button>
+</div>
+
+<div id="preview" class="panel hidden">
+  <img id="pImg"><br>
+  <div id="pInfo"></div>
+  <button onclick="goBind()">查看关联</button>
+  <button onclick="doBind()">绑定</button>
+  <button onclick="unBind()">解绑</button>
+  <button onclick="reName()">重命名</button>
+  <button onclick="delAsset()">删除</button>
+  <button onclick="save()">导出</button>
+</div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
