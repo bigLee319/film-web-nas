@@ -1,0 +1,10 @@
+version: '3'
+services:
+  film:
+    build: ./server
+    ports:
+      - 3980:3980
+    volumes:
+      - ./server/uploads:/app/uploads
+      - ./server/db.sqlite:/app/db.sqlite
+    restart: always
