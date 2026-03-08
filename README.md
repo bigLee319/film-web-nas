@@ -29,13 +29,10 @@ README.md
 ```bash
 docker-compose up -d
 🌐 访问
-plaintext
 http://NAS_IP:3980
 🔐 默认密钥
-plaintext
 film_2026_nas
 📁 结构
-plaintext
 film-web-nas/
 ├── docker-compose.yml
 ├── README.md
